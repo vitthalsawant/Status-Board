@@ -510,16 +510,17 @@ This is the call made by drag and drop and by the Move to menu.
 - Web Service, root directory `server`
 - Build command: `npm install`
 - Start command: `npm start`
-- Set `MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `CLIENT_URL` (the deployed site origin), `GOOGLE_CLIENT_ID`, and `NODE_ENV=production`
+- Set environment variables in the Render dashboard (not in a committed `.env` file):
+  - `MONGO_URI` must be the Atlas `mongodb+srv://...` string, with your real password and `/taskflow` after the host. Do not use `localhost` or `127.0.0.1`.
+  - `JWT_SECRET`, `JWT_EXPIRES_IN=7d`, `CLIENT_URL` (the deployed site origin), `GOOGLE_CLIENT_ID`, `NODE_ENV=production`
+- In Atlas Network Access, allow `0.0.0.0/0` so Render can connect.
 
-### Client on Vercel
+### Client on Render (Static Site)
 
-- Root directory `client`, framework preset Vite
-- Set `VITE_API_URL` to `https://<your-api>.onrender.com/api`
-- Set `VITE_GOOGLE_CLIENT_ID` to the same Google client ID
-- Add the Vercel origin to the OAuth client's authorized JavaScript origins
-- `CLIENT_URL` on the API must be that same Vercel origin, or the browser blocks the requests
-=======
-# Status-Board
-TaskFlow is a personal Kanban task manager
->>>>>>> ec836a36d51e2e48c497c74ab886fc3c2e0ac6c5
+- Root directory `client`
+- Build command `npm install && npm run build`
+- Publish directory `dist`
+- `VITE_API_URL` = `https://<your-api>.onrender.com/api`
+- `VITE_GOOGLE_CLIENT_ID` = the same Google client ID
+- Rewrite `/*` to `/index.html`
+- Add the static-site origin to Google Authorized JavaScript origins and to the API `CLIENT_URL`

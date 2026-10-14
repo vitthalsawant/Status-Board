@@ -8,6 +8,18 @@ if (missingEnv.length) {
   process.exit(1);
 }
 
+const mongoUri = process.env.MONGO_URI || '';
+const isLocalMongo =
+  mongoUri.includes('127.0.0.1') || mongoUri.includes('localhost');
+const isCloudHost = process.env.RENDER || process.env.NODE_ENV === 'production';
+
+if (isCloudHost && isLocalMongo) {
+  console.error(
+    'MONGO_URI points at localhost. Render cannot reach MongoDB on your computer. Set MONGO_URI in the Render dashboard to your Atlas string, for example mongodb+srv://USER:PASSWORD@statusboard.zdmzzjk.mongodb.net/taskflow?retryWrites=true&w=majority'
+  );
+  process.exit(1);
+}
+
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
