@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TaskFlow
 
 TaskFlow is a personal Kanban task manager built as a MERN application. A signed-in user creates tasks, moves them across To-Do, In-Progress, and Done, and can only see their own work. Sign-in is by email and password or by Google.
@@ -518,3 +519,7 @@ This is the call made by drag and drop and by the Move to menu.
 - Set `VITE_GOOGLE_CLIENT_ID` to the same Google client ID
 - Add the Vercel origin to the OAuth client's authorized JavaScript origins
 - `CLIENT_URL` on the API must be that same Vercel origin, or the browser blocks the requests
+=======
+# Status-Board
+TaskFlow is a personal Kanban task manager
+>>>>>>> ec836a36d51e2e48c497c74ab886fc3c2e0ac6c5
