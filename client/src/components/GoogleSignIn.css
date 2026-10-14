@@ -1,0 +1,33 @@
+.google-auth {
+  display: flex;
+  justify-content: center;
+}
+
+.google-auth--busy {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.google-auth__fallback {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.google-auth__fallback:hover {
+  background: var(--color-bg);
+}
+
+.google-auth__mark {
+  width: 18px;
+  height: 18px;
+}

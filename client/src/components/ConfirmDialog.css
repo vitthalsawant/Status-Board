@@ -1,0 +1,18 @@
+.dialog__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.dialog h2 {
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.dialog p {
+  margin-top: 8px;
+  color: var(--color-muted);
+  font-size: 14px;
+}
